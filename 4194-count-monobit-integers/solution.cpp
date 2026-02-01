@@ -1,0 +1,6 @@
+class Solution {
+public:
+    int countMonobit(int n) {
+        return log(n+1)/log(2)+1;
+    }
+};
