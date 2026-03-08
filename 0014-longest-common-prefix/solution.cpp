@@ -1,23 +1,22 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        int minm=2000;
-        int ind=-1;
-        for(int i=0; i<strs.size();i++){
-            if(strs[i].size()<minm){
-                minm=strs[i].size();
-                ind=i;
-            }
-        }
-        string ans;
-        for(int i=0; i<strs[ind].size();i++){
-            for(int j=0; j<strs.size()-1;j++){
-                if(strs[j+1][i]!=strs[j][i]){
-                    return ans;
+        if (strs.empty()) return "";
+
+        string pref = strs[0];
+        int prefLen = pref.length();
+
+        for (int i = 1; i < strs.size(); i++) {
+            string s = strs[i];
+            while (prefLen > s.length() || pref != s.substr(0, prefLen)) {
+                prefLen--;
+                if (prefLen == 0) {
+                    return "";
                 }
+                pref = pref.substr(0, prefLen);
             }
-            ans.push_back(strs[ind][i]);
         }
-        return ans;
+
+        return pref;        
     }
 };
