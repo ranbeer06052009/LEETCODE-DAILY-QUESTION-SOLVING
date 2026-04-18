@@ -1,15 +1,11 @@
 class Solution {
-private:
-    int reverse(int n){
-        long long ans;
-        while(n>0){
-            ans=ans*10+n%10;
-            n/=10;
-        }
-        return ans;
-    }
 public:
     int mirrorDistance(int n) {
-        return abs(n-reverse(n));
+        long long rev=0;
+        for(int x=n; x; x/=10){
+            rev=10*rev+x%10;
+        }
+        rev-=n;
+        return rev>=0?rev:-rev;
     }
 };
