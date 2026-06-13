@@ -1,25 +1,16 @@
 class Solution {
-
-char notochar(int i){
-    int j= 25-i;
-    int b= 'a';
-    char d= static_cast<char>(j+b);
-    return d;
-}
 public:
     string mapWordWeights(vector<string>& words, vector<int>& weights) {
-        int mod=26;
-        string ans="";
-        for(int i=0; i<words.size(); i++){
-            int c=0;
-            for(int j=0; j<words[i].size(); j++){
-                int b= words[i][j]-'a';
-                c=c+weights[b];
-                c=c%26;
-            }
-            char d= notochar(c);
-            ans.push_back(d);
+        string res(words.size(), 0);
+        int i = 0;
+
+        for (auto& word : words) {
+            int s = 0;
+            for (auto& c : word)
+                s += weights[(c & (1 << 5) - 1) - 1];
+            res[i++] = 'z' - (s - ((s * 2521) >> (1 << 4)) * 26);
         }
-        return ans;
+
+        return res;
     }
 };
