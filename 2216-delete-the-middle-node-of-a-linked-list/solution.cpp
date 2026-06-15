@@ -10,22 +10,17 @@
  */
 class Solution {
 public:
-    ListNode* deleteMiddle(ListNode* head) {
-        if (!head || !head->next){
-            return nullptr;
+    ListNode* deleteMiddle(ListNode* head){
+        if (!head||!head->next) return nullptr;
+        vector<ListNode*>nodes;
+        ListNode* temp=head;
+        while(temp){
+            nodes.push_back(temp);
+            temp=temp->next;
         }
-        ListNode* slow = head ;
-        ListNode* fast = head ;
-        ListNode* prev = nullptr;
-
-        while (fast!=nullptr && fast->next!=nullptr){
-            prev = slow;
-            slow = slow -> next ;
-            fast = fast->next->next;
-        }
-        prev->next = slow->next;
-        delete slow;
+        int mid=nodes.size()/2;
+        nodes[mid-1]->next=nodes[mid]->next;
+        delete nodes[mid];
         return head;
-        
     }
 };
