@@ -8,12 +8,12 @@ public:
             if(ans.size()==11){
                 break;
             }
-            if(s[i]=='+'&&!f1&&!f){
-                f1=true;f=true;
+            if(s[i]=='+'&&!f){
+                f=true;
                 continue;
             }
-            if(s[i]=='-'&&!f1&&!f){
-                ok=false;f1=true;f=true;
+            if(s[i]=='-'&&!f){
+                ok=false;f=true;
             }else if((s[i]==' '&&!f)||(s[i]=='0'&&!f)){
                 if(s[i]=='0')f=true;
                 continue;
