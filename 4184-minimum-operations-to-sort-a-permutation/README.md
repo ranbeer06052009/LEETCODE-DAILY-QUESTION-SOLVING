@@ -1,4 +1,4 @@
-<p>You are given an integer array <code>nums</code> of length <code>n</code>, where <code>nums</code> is a <span data-keyword="permutation-array">permutation</span> of the integers from 0 to <code>n - 1</code>.</p>
+<h2><a href="https://leetcode.com/problems/minimum-operations-to-sort-a-permutation">Minimum Operations to Sort a Permutation</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given an integer array <code>nums</code> of length <code>n</code>, where <code>nums</code> is a <span data-keyword="permutation-array">permutation</span> of the integers from 0 to <code>n - 1</code>.</p>
 
 <p>You may perform <strong>only</strong> the following operations:</p>
 
